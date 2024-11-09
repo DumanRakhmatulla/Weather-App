@@ -1101,7 +1101,7 @@ article.container::before {
   }
 
   article.containter {
-    grid-template-columns: 360px minmax(0 1fr);
+    grid-template-columns: 360px minmax(0, 1fr);
     gap: 40px;
   }
 
@@ -1131,4 +1131,7 @@ article.container::before {
 }
 
 @media (min-width: 1400px) {
+  .highlights-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
