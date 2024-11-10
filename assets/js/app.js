@@ -1,212 +1,212 @@
-/**
- * @license MIT
- * @copyright codewithsadee 2023 All rights reserved
- * @author codewithsadee <rakhmatulladuman0505@gmail.com>
- */
+// /**
+//  * @license MIT
+//  * @copyright codewithsadee 2023 All rights reserved
+//  * @author codewithsadee <rakhmatulladuman0505@gmail.com>
+//  */
 
-"use strict";
+// "use strict";
 
-import { fetchData, url } from "./api.js";
-import * as module from "./module.js";
+// import { fetchData, url } from "./api.js";
+// import * as module from "./module.js";
 
-/**
- *
- * @param {NodeList} elements Elements node array
- * @param {string} eventType Event Type e.g.: "click", "mouseover"
- * @param {Function} callback Callback function
- */
+// /**
+//  *
+//  * @param {NodeList} elements Elements node array
+//  * @param {string} eventType Event Type e.g.: "click", "mouseover"
+//  * @param {Function} callback Callback function
+//  */
 
-const addEventOnElements = function (elements, eventType, callback) {
-  for (const element of elements) element.addEventListener(eventType, callback);
-};
+// const addEventOnElements = function (elements, eventType, callback) {
+//   for (const element of elements) element.addEventListener(eventType, callback);
+// };
 
-/**
- *   Toggle  search in mobile deveices
- */
+// /**
+//  *   Toggle  search in mobile deveices
+//  */
 
-const searchView = document.querySelector("[data-search-view]");
-const searchTogglers = document.querySelectorAll("[data-search-toggler]");
+// const searchView = document.querySelector("[data-search-view]");
+// const searchTogglers = document.querySelectorAll("[data-search-toggler]");
 
-const toggleSearch = () => searchView.classList.toggle("active");
-addEventOnElements(searchTogglers, "click", toggleSearch);
+// const toggleSearch = () => searchView.classList.toggle("active");
+// addEventOnElements(searchTogglers, "click", toggleSearch);
 
-// app.js
+// // app.js
 
-// Басқа кодтар сол күйінде қалсын
+// // Басқа кодтар сол күйінде қалсын
 
-// app.js
+// // app.js
 
-export const error404 = () => {
-  console.log("Error 404: Page not found");
-  // 404 қатесін көрсету үшін басқа әрекеттер жасауға болады
-};
+// export const error404 = () => {
+//   console.log("Error 404: Page not found");
+//   // 404 қатесін көрсету үшін басқа әрекеттер жасауға болады
+// };
 
-// Егер басқа кодтар болса, оларды өзгеріссіз қалдырыңыз
+// // Егер басқа кодтар болса, оларды өзгеріссіз қалдырыңыз
 
-/**
- * SEARCH INTEGRATION
- */
+// /**
+//  * SEARCH INTEGRATION
+//  */
 
-const searchField = document.querySelector("[data-search-field");
-const searchResult = document.querySelector("[data-search-result]");
+// const searchField = document.querySelector("[data-search-field");
+// const searchResult = document.querySelector("[data-search-result]");
 
-let searchTimeout = null;
-let searchTimeoutDuration = 500;
+// let searchTimeout = null;
+// let searchTimeoutDuration = 500;
 
-searchField.addEventListener("input", function () {
-  searchTimeout ?? clearTimeout(searchTimeout);
+// searchField.addEventListener("input", function () {
+//   searchTimeout ?? clearTimeout(searchTimeout);
 
-  if (searchField.value) {
-    searchResult.classList.remove("active");
-    searchResult.innerHTML = "";
-    searchField.classList.remove("searching");
-  } else {
-    searchField.classList.add("searching");
-  }
+//   if (searchField.value) {
+//     searchResult.classList.remove("active");
+//     searchResult.innerHTML = "";
+//     searchField.classList.remove("searching");
+//   } else {
+//     searchField.classList.add("searching");
+//   }
 
-  if (searchField.value) {
-    searchTimeout = setTimeout(() => {
-      fetchData(url.geo(searchField.value), function (locations) {
-        searchField.classList.remove("searching");
-        searchResult.classList.add("active");
-        searchResult.innerHTML = `
-            <ul class="view-list" data-search-list>
-            </ul>
-        `;
+//   if (searchField.value) {
+//     searchTimeout = setTimeout(() => {
+//       fetchData(url.geo(searchField.value), function (locations) {
+//         searchField.classList.remove("searching");
+//         searchResult.classList.add("active");
+//         searchResult.innerHTML = `
+//             <ul class="view-list" data-search-list>
+//             </ul>
+//         `;
 
-        const /**  {NodeList} | [] */ items = [];
+//         const /**  {NodeList} | [] */ items = [];
 
-        for (const { name, lat, lon, country, state } of locations) {
-          const searchItem = document.createElement("li");
-          searchItem.classList.add("view-item");
+//         for (const { name, lat, lon, country, state } of locations) {
+//           const searchItem = document.createElement("li");
+//           searchItem.classList.add("view-item");
 
-          searchItem.innerHTML = `
-                <span class="m-icon">location_on</span>
+//           searchItem.innerHTML = `
+//                 <span class="m-icon">location_on</span>
 
-                <div>
-                    <p class="item-title">${name}</p>
-                    <p class="label-2 item-subtitle">${
-                      state || ""
-                    } ${country}</p>
-                </div>
-                <a href="#/weather?lat=${lat}&lon=${lon}" class="item-link has-state" aria-label="${name} weather" data-search-toggler></a>
-          `;
-          searchResult
-            .querySelector("[data-search-list]")
-            .appendChild(searchItem);
+//                 <div>
+//                     <p class="item-title">${name}</p>
+//                     <p class="label-2 item-subtitle">${
+//                       state || ""
+//                     } ${country}</p>
+//                 </div>
+//                 <a href="#/weather?lat=${lat}&lon=${lon}" class="item-link has-state" aria-label="${name} weather" data-search-toggler></a>
+//           `;
+//           searchResult
+//             .querySelector("[data-search-list]")
+//             .appendChild(searchItem);
 
-          items.push(searchItem.querySelector("[data-search-toggler]"));
-        }
-      });
-    }, searchTimeoutDuration);
-  }
-});
+//           items.push(searchItem.querySelector("[data-search-toggler]"));
+//         }
+//       });
+//     }, searchTimeoutDuration);
+//   }
+// });
 
-const container = document.querySelector("[data-container]");
-if (container) {
-  container.style.overflowY = "hidden";
-} else {
-  console.error("Container элементі табылмады");
-}
-const loading = document.querySelector("[data-loading]");
-if (loading) {
-  loading.style.display = "grid";
-} else {
-  console.error("loading элементі табылмады");
-}
-const currentLocationBtn = document.querySelector(
-  "[data-current-location-btn]"
-);
-const errorContent = document.querySelector("[data-error-content]");
+// const container = document.querySelector("[data-container]");
+// if (container) {
+//   container.style.overflowY = "hidden";
+// } else {
+//   console.error("Container элементі табылмады");
+// }
+// const loading = document.querySelector("[data-loading]");
+// if (loading) {
+//   loading.style.display = "grid";
+// } else {
+//   console.error("loading элементі табылмады");
+// }
+// const currentLocationBtn = document.querySelector(
+//   "[data-current-location-btn]"
+// );
+// const errorContent = document.querySelector("[data-error-content]");
+
+// // export const updateWeather = function (lat, lon) {
+// //     loading.
+// // }
+
+// /**
+//  * Render all weather data in html page
+//  * @param {number} lat Latitude
+//  * @param {number} lon Longitude
+//  */
 
 // export const updateWeather = function (lat, lon) {
-//     loading.
-// }
+//   loading.style.display = "grid";
+//   container.style.overflowY = "hidden";
+//   container.classList.contains("fade-in") ??
+//     container.classList.remove("fade-in");
+//   errorContent.style.display = "none";
 
-/**
- * Render all weather data in html page
- * @param {number} lat Latitude
- * @param {number} lon Longitude
- */
+//   const currentWeatherSection = document.querySelector(
+//     "[data-current-weather]"
+//   );
+//   const highlightSection = document.querySelector("[data-highlights]");
+//   const hourlySection = document.querySelector("[data-hourly-forecast]");
+//   const forecastSection = document.querySelector("[data-5-day-forecast]");
 
-export const updateWeather = function (lat, lon) {
-  loading.style.display = "grid";
-  container.style.overflowY = "hidden";
-  container.classList.contains("fade-in") ??
-    container.classList.remove("fade-in");
-  errorContent.style.display = "none";
+//   currentWeatherSection.innerHTML = "";
+//   highlightSection.innerHTML = "";
+//   hourlySection.innerHTML = "";
+//   forecastSection.innerHTML = "";
 
-  const currentWeatherSection = document.querySelector(
-    "[data-current-weather]"
-  );
-  const highlightSection = document.querySelector("[data-highlights]");
-  const hourlySection = document.querySelector("[data-hourly-forecast]");
-  const forecastSection = document.querySelector("[data-5-day-forecast]");
+//   if (window.localStorage.hash === "#/current-location") {
+//     currentLocationBtn.setAttribute("disabled", "");
+//   } else {
+//     currentLocationBtn.removeAttribute("disabled");
+//   }
 
-  currentWeatherSection.innerHTML = "";
-  highlightSection.innerHTML = "";
-  hourlySection.innerHTML = "";
-  forecastSection.innerHTML = "";
+//   /**
+//    * CURRENT WEATHER SECTION
+//    */
+//   fetchData(url.currentWeather(lat, lon), function (currentWeather) {
+//     const {
+//       weather,
+//       dt: dateUnix,
+//       sys: { sunrise: sunriseUnixUTC, sunset: sunsetUnixUTC },
+//       main: { temp, feels_like, pressure, humidity },
+//       visiblity,
+//       timezone,
+//     } = currentWeather;
+//     const [{ description, icon }] = weather;
 
-  if (window.localStorage.hash === "#/current-location") {
-    currentLocationBtn.setAttribute("disabled", "");
-  } else {
-    currentLocationBtn.removeAttribute("disabled");
-  }
+//     const card = document.createElement("div");
+//     card.classList.add("card", "card-lg", "current-weather-card");
 
-  /**
-   * CURRENT WEATHER SECTION
-   */
-  fetchData(url.currentWeather(lat, lon), function (currentWeather) {
-    const {
-      weather,
-      dt: dateUnix,
-      sys: { sunrise: sunriseUnixUTC, sunset: sunsetUnixUTC },
-      main: { temp, feels_like, pressure, humidity },
-      visiblity,
-      timezone,
-    } = currentWeather;
-    const [{ description, icon }] = weather;
+//     card.innerHTML = `
+//         <h2 class="title-2 card-title">Now</h2>
 
-    const card = document.createElement("div");
-    card.classList.add("card", "card-lg", "current-weather-card");
+//         <div class="weapper">
+//         <p class="heading">${parseInt(temp)}&deg;<sup>c</sup></p>
+//         <img
+//             src="./assets/images/weather_icons/${icon}.png"
+//             width="64"
+//             height="64"
+//             alt="${description}"
+//             class="weather-icon"
+//         />
+//         </div>
+//         <p class="body-3">${description}</p>
 
-    card.innerHTML = `
-        <h2 class="title-2 card-title">Now</h2>
+//         <ul class="meta-list">
+//         <li class="meta-item">
+//             <span class="m-icon">calendar_today</span>
+//             <p class="title-3 meta-text">${module.getDate(
+//               dateUnix,
+//               timezone
+//             )}</p>
+//         </li>
+//         <li class="meta-item">
+//             <span class="m-icon">location_on</span>
+//             <p class="title-3 meta-text" data-location></p>
+//         </li>
+//         </ul>
+//     `;
 
-        <div class="weapper">
-        <p class="heading">${parseInt(temp)}&deg;<sup>c</sup></p>
-        <img
-            src="./assets/images/weather_icons/${icon}.png"
-            width="64"
-            height="64"
-            alt="${description}"
-            class="weather-icon"
-        />
-        </div>
-        <p class="body-3">${description}</p>
+//     fetchData(url.reverseGeo(lat, lon), function ([{ name, country }]) {
+//       card.querySelector("[data-location]").innerHTML = `${name}, ${country}`;
+//     });
 
-        <ul class="meta-list">
-        <li class="meta-item">
-            <span class="m-icon">calendar_today</span>
-            <p class="title-3 meta-text">${module.getDate(
-              dateUnix,
-              timezone
-            )}</p>
-        </li>
-        <li class="meta-item">
-            <span class="m-icon">location_on</span>
-            <p class="title-3 meta-text" data-location></p>
-        </li>
-        </ul>
-    `;
-
-    fetchData(url.reverseGeo(lat, lon), function ([{ name, country }]) {
-      card.querySelector("[data-location]").innerHTML = `${name}, ${country}`;
-    });
-
-    currentWeatherSection.appendChild(card);
-  });
-  // updateWeather функциясының мазмұны
-  //   console.log(`Updating weather for locations: ${lat}, ${lon}`);
-};
+//     currentWeatherSection.appendChild(card);
+//   });
+//   // updateWeather функциясының мазмұны
+//   //   console.log(`Updating weather for locations: ${lat}, ${lon}`);
+// };

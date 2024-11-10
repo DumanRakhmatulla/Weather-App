@@ -4,8 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- primary meta tags -->
-
     <title>Weather App</title>
     <meta name="title" content="weatherio" />
     <meta
@@ -13,11 +11,7 @@
       content="weatherio is a weather app made by codewithsadee"
     />
 
-    <!-- favicon -->
-
     <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml" />
-
-    <!-- google font link -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,16 +20,15 @@
       rel="stylesheet"
     />
 
-    <!-- custom css link -->
-
     <link rel="stylesheet" href="./assets/css/style.css" />
 
-    <!-- custom js link -->
-
-    <script src="./assets/js/api.js" type="module"></script>
+    <script src="./assets/js/app.js" type="module"></script>
     <script src="./assets/js/route.js" type="module"></script>
   </head>
   <body>
+    <!-- 
+    -  #HEADER
+    -->
     <header class="header">
       <div class="container">
         <a href="#" class="logo">
@@ -61,14 +54,29 @@
             <span class="m-icon leading-icon">search</span>
 
             <button
-              class="icon-btn leading-iconleading-icon has-state"
+              class="icon-btn leading-icon has-state"
               aria-label="close search"
               data-search-toggler
             >
               <span class="m-icon">arrow_back</span>
             </button>
           </div>
-          <div class="active search-result" data-search-result></div>
+
+          <div class="search-result" data-search-result>
+            <ul class="view-list">
+              <li class="view-item">
+                <span class="m-icon">location_on</span>
+
+                <div>
+                  <p class="item-title">London</p>
+
+                  <p class="label-2 item-subtitle">State of London, GB</p>
+                </div>
+
+                <a href="#" class="item-link has-state" data-search-toggler></a>
+              </li>
+            </ul>
+          </div>
         </div>
 
         <div class="header-actions">
@@ -83,6 +91,7 @@
             href="#/current-location"
             class="btn-primary has-state"
             data-current-location-btn
+            disabled
           >
             <span class="m-icon">my_location</span>
             <span class="span">Current Location</span>
@@ -94,11 +103,47 @@
     <main>
       <article class="container" data-container>
         <div class="content-left">
+          <!-- 
+          -  #CURRENT-LEFT
+          -->
+
           <section
             class="section current-weather"
             aria-label="current weather"
             data-current-weather
-          ></section>
+          >
+            <div class="card card-lg current-weather-card">
+              <h2 class="title-2 card-title">Now</h2>
+
+              <div class="weapper">
+                <p class="heading">25&deg;<sup>c</sup></p>
+
+                <img
+                  src="./assets/images/weather_icons/01d.png"
+                  width="64"
+                  height="64"
+                  alt="Overcast Clouds"
+                  class="weather-icon"
+                />
+              </div>
+
+              <p class="body-3">Overcast Clouds</p>
+
+              <ul class="meta-list">
+                <li class="meta-item">
+                  <span class="m-icon">calendar_today</span>
+
+                  <p class="title-3 meta-text">Thursday 16, Feb</p>
+                </li>
+
+                <li class="meta-item">
+                  <span class="m-icon">location_on</span>
+
+                  <p class="title-3 meta-text">London, GB</p>
+                </li>
+              </ul>
+            </div>
+          </section>
 
           <!-- 
           - FORECAST
@@ -106,10 +151,10 @@
 
           <section
             class="section forecast"
-            aria-labelledby="forectst-label"
+            aria-labelledby="forecast-label"
             data-5-day-forecast
           >
-            <h2 class="title-2">5 Day Forecast</h2>
+            <h2 class="title-2" id="forecast-label">5 Day Forecast</h2>
             <div class="card card-lg forecast-card">
               <ul>
                 <li class="card-item">
@@ -126,6 +171,7 @@
                   <p class="label-1">17 Feb</p>
                   <p class="label-1">Friday</p>
                 </li>
+
                 <li class="card-item">
                   <div class="icon-wrapper">
                     <img
@@ -140,6 +186,7 @@
                   <p class="label-1">17 Feb</p>
                   <p class="label-1">Friday</p>
                 </li>
+
                 <li class="card-item">
                   <div class="icon-wrapper">
                     <img
@@ -154,6 +201,7 @@
                   <p class="label-1">17 Feb</p>
                   <p class="label-1">Friday</p>
                 </li>
+
                 <li class="card-item">
                   <div class="icon-wrapper">
                     <img
@@ -168,6 +216,7 @@
                   <p class="label-1">17 Feb</p>
                   <p class="label-1">Friday</p>
                 </li>
+
                 <li class="card-item">
                   <div class="icon-wrapper">
                     <img
@@ -303,8 +352,8 @@
           >
             <h2 class="title-2">Today at</h2>
 
-            <div class="slider-container" data-temp>
-              <ul class="slider-list">
+            <div class="slider-container">
+              <ul class="slider-list" data-temp>
                 <li class="slider-item">
                   <div class="card card-sm slider-card">
                     <p class="body-3">03 PM</p>
