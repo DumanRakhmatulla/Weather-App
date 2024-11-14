@@ -1,18 +1,6 @@
-/**
- * @license MIT
- * @fileoverview All api related stuff like api_key, api request etc.
- * @copyright codewithsadee 2023 All rights reserved
- * @author codewithsadee <rakhmatulladuman0505@gmail.com>
- */
-
 "use strict";
 
 const api_key = "92abfb16c48f7b0fdeec630f82da955a";
-
-/**
- * @param {string} URL API url
- * @param {Function} callback  callback
- */
 
 export const fetchData = function (URL, callback) {
   fetch(`${URL}&appid=${api_key}`)
@@ -33,9 +21,6 @@ export const url = {
   reverseGeo(lat, lon) {
     return `http://api.openweathermap.org/geo/1.0/reverse?${lat}&${lon}&limit=5`;
   },
-  /**
-   * @param {string} query Search query e.g.: "London", "New York"
-   */
   geo(query) {
     return `http://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5`;
   },

@@ -1,38 +1,17 @@
-/**
- * @license MIT
- * @copyright codewithsadee 2023 All rights reserved
- * @author codewithsadee <rakhmatulladuman0505@gmail.com>
- */
-
 "use strict";
 
 import { fetchData, url } from "./api.js";
 import * as module from "./module.js";
 
-/**
- *
- * @param {NodeList} elements Elements node array
- * @param {string} eventType Event Type e.g.: "click", "mouseover"
- * @param {Function} callback Callback function
- */
-
 const addEventOnElements = function (elements, eventType, callback) {
   for (const element of elements) element.addEventListener(eventType, callback);
 };
-
-/**
- *   Toggle  search in mobile deveices
- */
 
 const searchView = document.querySelector("[data-search-view]");
 const searchTogglers = document.querySelectorAll("[data-search-toggler]");
 
 const toggleSearch = () => searchView.classList.toggle("active");
 addEventOnElements(searchTogglers, "click", toggleSearch);
-
-/**
- * SEARCH INTEGRATION
- */
 
 const searchField = document.querySelector("[data-search-field");
 const searchResult = document.querySelector("[data-search-result]");
@@ -61,7 +40,7 @@ searchField.addEventListener("input", function () {
             </ul>
         `;
 
-        const /**  {NodeList} | [] */ items = [];
+        const items = [];
 
         for (const { name, lat, lon, country, state } of locations) {
           const searchItem = document.createElement("li");
@@ -100,12 +79,6 @@ const currentLocationBtn = document.querySelector(
 );
 const errorContent = document.querySelector("[data-error-content]");
 
-/**
- * Render all weather data in html page
- * @param {number} lat Latitude
- * @param {number} lon Longitude
- */
-
 export const updateWeather = function (lat, lon) {
   loading.style.display = "grid";
   container.style.overflowY = "hidden";
@@ -128,9 +101,6 @@ export const updateWeather = function (lat, lon) {
   } else {
     currentLocationBtn.removeAttribute("disabled");
   }
-  /**
-   * CURRENT WEATHER SECTION
-   */
   fetchData(url.currentWeather(lat, lon), function (currentWeather) {
     const {
       weather,
@@ -179,10 +149,6 @@ export const updateWeather = function (lat, lon) {
       card.querySelector("[data-location]").innerHTML = `${name}, ${country}`;
     });
     currentWeatherSection.appendChild(card);
-
-    /**
-     * TODAY'S HIGHLIGHTS
-     */
     fetchData(url.airPollution(lat, lon), function (airPollution) {
       const [
         {
@@ -298,10 +264,6 @@ export const updateWeather = function (lat, lon) {
 
       highlightSection.appendChild(card);
     });
-
-    /**
-     * 24H FORECAST SECTION
-     */
     fetchData(url.forecast(lat, lon), function (forecast) {
       const {
         list: forecastList,
@@ -371,10 +333,6 @@ export const updateWeather = function (lat, lon) {
 
         hourlySection.querySelector("[data-wind]").appendChild(windLi);
       }
-
-      /**
-       * 5 DAY FORECAST SECTION
-       */
       forecastSection.innerHTML = `
       <h2 class="title-2" id="forecast-label">5 Day Forecast</h2>
 
