@@ -1,15 +1,3 @@
-/*-----------------------------------*\
-  #style.css
-\*-----------------------------------*/
-
-/**
- * copyright 2023 codewithsadee
- */
-
-/*-----------------------------------*\
-  #CUSTOM PROPERTY
-\*-----------------------------------*/
-
 :root {
   --primary: #b5a1e5;
   --on-primary: #100e17;
@@ -52,10 +40,7 @@
   * TYPOGRAPHY
   */
 
-  /* font family */
   --ff-nunito-sans: "Nunito Sans", sans-serif;
-
-  /* font size */
 
   --heading: 5.6rem;
   --title-1: 2rem;
@@ -67,25 +52,17 @@
   --label-1: 1.4rem;
   --label-2: 1.2rem;
 
-  /* font weight */
   --weight-regular: 400;
   --weight-semiBold: 600;
 
-  /** 
-  * BOX SHADOW
-  */
   --shadow-1: 0px 1px 3px hsla(0, 0%, 0%, 0.5);
   --shadow-2: 0px 3px 6px hsla(0, 0%, 0%, 0.4);
 
-  /**
-  * BORDER RADIUS
-  */
   --radius-28: 28px;
   --radius-16: 16px;
   --radius-pill: 500px;
   --radius-circle: 50%;
 
-  /* TRANSITION */
   --transition-short: 100ms ease;
 }
 
@@ -179,10 +156,6 @@ body {
   border-radius: var(--radius-pill);
 }
 
-/*-----------------------------------*\
-  #MATERIAL ICON
-\*-----------------------------------*/
-
 @font-face {
   font-family: "Material Symbols Rounded";
   font-style: normal;
@@ -208,10 +181,6 @@ body {
   width: 1em;
   overflow: hidden;
 }
-
-/*-----------------------------------*\
-  #REUSED STYLE
-\*-----------------------------------*/
 
 .container {
   max-width: 1600px;
@@ -364,10 +333,6 @@ body {
   }
 }
 
-/*-----------------------------------*\
-  #HEADER
-\*-----------------------------------*/
-
 .header .btn-primary .span {
   display: none;
 }
@@ -504,10 +469,6 @@ body {
   box-shadow: none;
 }
 
-/*-----------------------------------*\
-  #Main
-\*-----------------------------------*/
-
 main {
   height: calc(100vh -80px);
   height: calc(100svh -80px);
@@ -587,10 +548,6 @@ article.container::before {
   color: var(--on-surface-variant);
 }
 
-/*-----------------------------------*\
-  #HIGHLIGHTS
-\*-----------------------------------*/
-
 .forecast-card .title-2 {
   margin-block-end: 0;
 }
@@ -617,10 +574,6 @@ article.container::before {
   width: 100%;
   text-align: right;
 }
-
-/*-----------------------------------*\
-  #HOURLY FORECAST
-\*-----------------------------------*/
 
 .highlights .m-icon {
   font-size: 3.2rem;
@@ -712,10 +665,6 @@ article.container::before {
   margin-block-end: 4px;
 }
 
-/*-----------------------------------*\
-  #FORECAST
-\*-----------------------------------*/
-
 .slider-container {
   overflow-x: auto;
   margin-inline: -16px;
@@ -754,10 +703,6 @@ article.container::before {
   margin-block: 12px;
 }
 
-/*-----------------------------------*\
-  #FOOTER
-\*-----------------------------------*/
-
 .footer,
 .footer .body-3:last-child {
   display: flex;
@@ -782,10 +727,6 @@ article.container::before {
   gap: 6px;
 }
 
-/*-----------------------------------*\
-  #LOADING
-\*-----------------------------------*/
-
 .loading {
   position: absolute;
   top: 0;
@@ -808,10 +749,6 @@ article.container::before {
   animation: loading 500ms linear infinite;
 }
 
-/*-----------------------------------*\
-  #ERROR SECTION
-\*-----------------------------------*/
-
 .error-content {
   position: fixed;
   top: 0;
@@ -831,16 +768,8 @@ article.container::before {
   margin-block-start: 20px;
 }
 
-/*-----------------------------------*\
-  #MEDIA QUERIES
-\*-----------------------------------*/
-
 /* large than 786px screen */
 @media (min-width: 768px) {
-  /* 
-  RESUED STYLE
-  */
-
   .container {
     padding: 24px;
   }
@@ -868,10 +797,6 @@ article.container::before {
     right: 20px;
   }
 
-  /* 
-    HEADER
-  */
-
   .header-actions {
     gap: 24px;
   }
@@ -887,10 +812,6 @@ article.container::before {
   .search-view {
     clip-path: circle(3% at calc(100% - 273px) 6%);
   }
-
-  /* 
-    MAIN
-  */
 
   main {
     height: calc(100vh - 96px);
@@ -960,18 +881,10 @@ article.container::before {
 
 /* large than 1200px screen */
 @media (min-width: 1200px) {
-  /* 
-    CUSTOM PROPERTY
-  */
-
   :root {
     --heading: 8rem;
     --title-2: 2rem;
   }
-
-  /* 
-    REUSED STYLE
-  */
 
   .container {
     padding: 40px;
@@ -992,8 +905,6 @@ article.container::before {
   .highlight-card.two .card-item {
     column-gap: 24px;
   }
-
-  /* HEADER */
 
   .header .icon-btn {
     display: none;
@@ -1082,10 +993,6 @@ article.container::before {
   .search-view:is(:focus-within, :has(.view-list):focus-within) {
     filter: drop-shadow(var(--shadow-2));
   }
-
-  /* 
-     MAIN
-  */
 
   main {
     height: calc(100vh-120px);
